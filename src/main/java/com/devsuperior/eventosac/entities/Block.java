@@ -3,8 +3,6 @@ package com.devsuperior.eventosac.entities;
 import jakarta.persistence.*;
 
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,9 +13,9 @@ public class Block {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-    private Instant start;
+    private Instant start_time;
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-    private Instant finish;
+    private Instant end_time;
 
     @ManyToOne
     @JoinColumn(name = "activity_id")
@@ -29,8 +27,8 @@ public class Block {
 
     public Block(Long id, Instant start, Instant finish) {
         this.id = id;
-        this.start = start;
-        this.finish = finish;
+        this.start_time = start;
+        this.end_time = finish;
     }
 
     public Long getId() {
@@ -41,20 +39,20 @@ public class Block {
         this.id = id;
     }
 
-    public Instant getStart() {
-        return start;
+    public Instant getStart_time() {
+        return start_time;
     }
 
-    public void setStart(Instant start) {
-        this.start = start;
+    public void setStart_time(Instant start_time) {
+        this.start_time = start_time;
     }
 
-    public Instant getFinish() {
-        return finish;
+    public Instant getEnd_time() {
+        return end_time;
     }
 
-    public void setFinish(Instant finish) {
-        this.finish = finish;
+    public void setEnd_time(Instant end_time) {
+        this.end_time = end_time;
     }
 
     @Override

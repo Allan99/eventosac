@@ -3,9 +3,7 @@ package com.devsuperior.eventosac.entities;
 import jakarta.persistence.*;
 import org.apache.catalina.User;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_activity")
@@ -25,6 +23,9 @@ public class Activity {
 
     @OneToMany(mappedBy = "activity")
     private List<Block> blocks = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "activities")
+    private Set<Participant> participants = new HashSet<>();
 
     public Activity(){
 
